@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Human Mobility Challenge 2026</title>
+  <title>HuMob Challenge 2026</title>
   <style>
     body {
       margin: 0;
@@ -27,7 +27,7 @@
 
     header p {
       font-size: 20px;
-      max-width: 760px;
+      max-width: 820px;
       margin: 0 auto 32px;
     }
 
@@ -49,6 +49,7 @@
       border-bottom: 1px solid #e5e7eb;
       position: sticky;
       top: 0;
+      z-index: 10;
     }
 
     nav a {
@@ -59,7 +60,7 @@
     }
 
     section {
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 56px 24px;
     }
@@ -68,6 +69,19 @@
       font-size: 32px;
       color: #0f172a;
       margin-bottom: 16px;
+    }
+
+    h3 {
+      color: #0f172a;
+      margin-top: 0;
+    }
+
+    .notice {
+      background: #eff6ff;
+      border-left: 5px solid #1d4ed8;
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin-top: 24px;
     }
 
     .card-grid {
@@ -91,16 +105,24 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      margin-top: 20px;
     }
 
     th, td {
       padding: 14px 18px;
       border-bottom: 1px solid #e5e7eb;
       text-align: left;
+      vertical-align: top;
     }
 
     th {
       background: #eff6ff;
+    }
+
+    code {
+      background: #e5e7eb;
+      padding: 2px 6px;
+      border-radius: 6px;
     }
 
     footer {
@@ -110,58 +132,110 @@
       background: white;
       border-top: 1px solid #e5e7eb;
     }
+
+    a {
+      color: #1d4ed8;
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>Human Mobility Challenge 2026</h1>
+    <h1>HuMob Challenge 2026</h1>
     <p>
-      A benchmark challenge for predicting, simulating, and evaluating
-      human mobility behavior across cities.
+      A benchmark challenge for predicting how human mobility recovered after the
+      2024 Noto Peninsula Earthquake using origin-destination matrix prediction.
     </p>
-    <a class="button" href="#tasks">Challenge Tasks</a>
+    <a class="button" href="#challenge">The Challenge</a>
+    <a class="button" href="#dataset">Dataset</a>
     <a class="button" href="#timeline">Important Dates</a>
-    <a class="button" href="#organizers">Organizers</a>
   </header>
 
   <nav>
     <a href="#about">About</a>
-    <a href="#tasks">Tasks</a>
+    <a href="#challenge">Challenge</a>
     <a href="#dataset">Dataset</a>
+    <a href="#rules">Rules</a>
+    <a href="#evaluation">Evaluation</a>
     <a href="#timeline">Timeline</a>
-    <a href="#submission">Submission</a>
     <a href="#organizers">Organizers</a>
   </nav>
 
   <section id="about">
-    <h2>About the Challenge</h2>
+    <h2>Welcome to the Human Mobility Prediction Challenge 2026</h2>
     <p>
-      The Human Mobility Challenge 2026 invites researchers to develop models
-      that predict, simulate, and explain human mobility patterns. The challenge
-      aims to create a reproducible benchmark for urban AI, spatial data science,
-      and human mobility modeling.
+      The Human Mobility Prediction Challenge, also known as the HuMob Challenge,
+      is a competition aimed at testing state-of-the-art computational models for
+      predicting human mobility patterns.
     </p>
+
+    <p>
+      Understanding, modeling, and predicting human mobility in urban and regional
+      areas is an essential task for many domains and applications, including
+      transportation modeling, disaster risk management, emergency response,
+      urban planning, and regional recovery analysis.
+    </p>
+
+    <p>
+      Recent advances in large-scale mobility data and computational modeling have
+      enabled researchers to develop increasingly complex human mobility models.
+      However, mobility prediction methods are often trained and tested on
+      different datasets, making it difficult to compare model performance fairly.
+      The HuMob Challenge provides a shared benchmark task and dataset to support
+      reproducible evaluation of human mobility models.
+    </p>
+
+    <div class="notice">
+      <strong>Data release:</strong> The HuMob Challenge 2026 dataset will be released on
+      <strong>June 15, 2026</strong>.
+    </div>
   </section>
 
-  <section id="tasks">
-    <h2>Challenge Tasks</h2>
+  <section id="challenge">
+    <h2>The Challenge: Recovery-period OD Matrix Prediction</h2>
+    <p>
+      The 2026 challenge focuses on human mobility recovery after the
+      2024 Noto Peninsula Earthquake in Ishikawa Prefecture, Japan.
+      Participants will estimate how and to what extent human mobility recovered
+      during the post-disaster recovery period.
+    </p>
+
+    <p>
+      The task is to predict origin-destination matrices during the test period
+      using the provided training-period OD matrices and publicly accessible
+      contextual information, such as news articles, public reports, and official
+      recovery-related information.
+    </p>
+
     <div class="card-grid">
       <div class="card">
-        <h3>Task 1: Next-location Prediction</h3>
-        <p>Predict the next visited location given a sequence of previous visits.</p>
+        <h3>Prediction target</h3>
+        <p>
+          Daily origin-destination matrices representing mobility flows between
+          spatial grid cells in the Noto / Ishikawa study area.
+        </p>
       </div>
+
       <div class="card">
-        <h3>Task 2: Trajectory Generation</h3>
-        <p>Generate realistic mobility trajectories that reproduce observed patterns.</p>
+        <h3>Study area</h3>
+        <p>
+          The study area covers the Noto region in Ishikawa Prefecture, Japan,
+          defined by the challenge bounding box.
+        </p>
       </div>
+
       <div class="card">
-        <h3>Task 3: Cross-city Transfer</h3>
-        <p>Evaluate whether mobility models generalize across urban contexts.</p>
+        <h3>Spatial resolution</h3>
+        <p>
+          The region is approximately divided into 2,000-meter grid cells.
+        </p>
       </div>
+
       <div class="card">
-        <h3>Task 4: Counterfactual Prediction</h3>
-        <p>Predict mobility responses under hypothetical urban interventions.</p>
+        <h3>Temporal resolution</h3>
+        <p>
+          The main challenge dataset is aggregated at the daily level.
+        </p>
       </div>
     </div>
   </section>
@@ -169,10 +243,129 @@
   <section id="dataset">
     <h2>Dataset</h2>
     <p>
-      Dataset access instructions will be announced soon. The challenge will
-      provide training, validation, and test data for evaluating human mobility
-      prediction and simulation models.
+      The dataset will contain aggregated origin-destination mobility flows for
+      the Noto / Ishikawa study area. The main release will use daily aggregation
+      and approximately 2 km grid cells.
     </p>
+
+    <h3>Study Area Bounding Box</h3>
+    <table>
+      <tr>
+        <th>Coordinate</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>Latitude range</td>
+        <td>36.20365304643702 to 37.64674474887858</td>
+      </tr>
+      <tr>
+        <td>Longitude range</td>
+        <td>136.02984503356345 to 138.04202961970387</td>
+      </tr>
+    </table>
+
+    <h3>Training and Test Periods</h3>
+    <table>
+      <tr>
+        <th>Split</th>
+        <th>Period</th>
+      </tr>
+      <tr>
+        <td>Training period</td>
+        <td>November 1, 2023 to January 31, 2024</td>
+      </tr>
+      <tr>
+        <td>Training period</td>
+        <td>April 1, 2024 to June 30, 2024</td>
+      </tr>
+      <tr>
+        <td>Test period</td>
+        <td>February 1, 2024 to March 31, 2024</td>
+      </tr>
+    </table>
+
+    <div class="notice">
+      The dataset is not released yet. It will be made available on
+      <strong>June 15, 2026</strong>.
+    </div>
+  </section>
+
+  <section id="rules">
+    <h2>Rules</h2>
+    <p>
+      Participants may use the provided training data and publicly accessible
+      external information to predict mobility flows during the test period.
+    </p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Allowed external information</h3>
+        <p>
+          Publicly accessible information, such as news articles, public archives,
+          government reports, and open web resources, may be used.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Not allowed</h3>
+        <p>
+          Other mobility datasets may not be used. Private, internal, proprietary,
+          or non-public datasets are also not allowed.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Transparency</h3>
+        <p>
+          Participants should document the public information sources used in
+          their approach.
+        </p>
+      </div>
+    </div>
+
+    <h3>Reference Information</h3>
+    <p>
+      The organizing team will provide a list of suggested public references.
+      Participants may also use other publicly available sources, as long as they
+      comply with the challenge rules.
+    </p>
+
+    <ul>
+      <li>
+        <a href="https://ja.wikipedia.org/wiki/%E8%83%BD%E7%99%BB%E5%8D%8A%E5%B3%B6%E5%9C%B0%E9%9C%87_(2024%E5%B9%B4)" target="_blank">
+          2024 Noto Peninsula Earthquake, Wikipedia
+        </a>
+      </li>
+      <li>
+        <a href="https://noto-archive.pref.ishikawa.lg.jp/" target="_blank">
+          Noto Peninsula Earthquake Archive, Ishikawa Prefecture
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="evaluation">
+    <h2>Evaluation</h2>
+    <p>
+      Submissions will be evaluated by comparing predicted and observed
+      origin-destination matrices during the test period.
+    </p>
+
+    <h3>Primary metric</h3>
+    <p>
+      The primary evaluation metric will be the sum of squared errors between
+      predicted and observed OD flows within the Noto study area.
+    </p>
+
+    <h3>Baseline Models</h3>
+    <p>
+      Baseline results will be provided for comparison. Planned baselines include:
+    </p>
+
+    <ul>
+      <li>Using April 2024 OD flows directly as predictions for the test period.</li>
+      <li>Using corresponding 2023 OD flows directly as predictions for the test period.</li>
+    </ul>
   </section>
 
   <section id="timeline">
@@ -183,19 +376,23 @@
         <th>Date</th>
       </tr>
       <tr>
-        <td>Challenge announcement</td>
-        <td>TBD</td>
+        <td>Website launch</td>
+        <td>June 2026</td>
       </tr>
       <tr>
         <td>Dataset release</td>
-        <td>TBD</td>
+        <td>June 15, 2026</td>
       </tr>
       <tr>
         <td>Submission deadline</td>
         <td>TBD</td>
       </tr>
       <tr>
-        <td>Winner announcement</td>
+        <td>Notification of top teams</td>
+        <td>TBD</td>
+      </tr>
+      <tr>
+        <td>Workshop / presentation</td>
         <td>TBD</td>
       </tr>
     </table>
@@ -204,21 +401,35 @@
   <section id="submission">
     <h2>Submission</h2>
     <p>
-      Submission instructions, evaluation metrics, and leaderboard information
-      will be posted here.
+      Submission instructions, file format requirements, and validation tools will
+      be announced closer to the dataset release.
+    </p>
+
+    <p>
+      Participants will be asked to submit predicted OD matrices for the test
+      period. More details will be provided on this website.
     </p>
   </section>
 
   <section id="organizers">
     <h2>Organizers</h2>
     <p>
-      Taka Yabe, New York University<br />
+      Takahiro Yabe, New York University<br />
       Additional organizers to be announced.
     </p>
   </section>
 
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      Please contact Taka at
+      <a href="mailto:takahiroyabe@nyu.edu">takahiroyabe@nyu.edu</a>
+      for any questions.
+    </p>
+  </section>
+
   <footer>
-    Human Mobility Challenge 2026
+    HuMob Challenge 2026 · Human Mobility Prediction Challenge
   </footer>
 </body>
 </html>
