@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human Mobility Challenge 2026</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #f8fafc;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: white;
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    header p {
+      font-size: 20px;
+      max-width: 760px;
+      margin: 0 auto 32px;
+    }
+
+    .button {
+      display: inline-block;
+      background: white;
+      color: #1d4ed8;
+      padding: 12px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 6px;
+    }
+
+    nav {
+      background: white;
+      padding: 14px 24px;
+      text-align: center;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+    }
+
+    nav a {
+      margin: 0 12px;
+      color: #1f2937;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+
+    h2 {
+      font-size: 32px;
+      color: #0f172a;
+      margin-bottom: 16px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    th, td {
+      padding: 14px 18px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+
+    th {
+      background: #eff6ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 36px 24px;
+      color: #6b7280;
+      background: white;
+      border-top: 1px solid #e5e7eb;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Human Mobility Challenge 2026</h1>
+    <p>
+      A benchmark challenge for predicting, simulating, and evaluating
+      human mobility behavior across cities.
+    </p>
+    <a class="button" href="#tasks">Challenge Tasks</a>
+    <a class="button" href="#timeline">Important Dates</a>
+    <a class="button" href="#organizers">Organizers</a>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#tasks">Tasks</a>
+    <a href="#dataset">Dataset</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#submission">Submission</a>
+    <a href="#organizers">Organizers</a>
+  </nav>
+
+  <section id="about">
+    <h2>About the Challenge</h2>
+    <p>
+      The Human Mobility Challenge 2026 invites researchers to develop models
+      that predict, simulate, and explain human mobility patterns. The challenge
+      aims to create a reproducible benchmark for urban AI, spatial data science,
+      and human mobility modeling.
+    </p>
+  </section>
+
+  <section id="tasks">
+    <h2>Challenge Tasks</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Task 1: Next-location Prediction</h3>
+        <p>Predict the next visited location given a sequence of previous visits.</p>
+      </div>
+      <div class="card">
+        <h3>Task 2: Trajectory Generation</h3>
+        <p>Generate realistic mobility trajectories that reproduce observed patterns.</p>
+      </div>
+      <div class="card">
+        <h3>Task 3: Cross-city Transfer</h3>
+        <p>Evaluate whether mobility models generalize across urban contexts.</p>
+      </div>
+      <div class="card">
+        <h3>Task 4: Counterfactual Prediction</h3>
+        <p>Predict mobility responses under hypothetical urban interventions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dataset">
+    <h2>Dataset</h2>
+    <p>
+      Dataset access instructions will be announced soon. The challenge will
+      provide training, validation, and test data for evaluating human mobility
+      prediction and simulation models.
+    </p>
+  </section>
+
+  <section id="timeline">
+    <h2>Important Dates</h2>
+    <table>
+      <tr>
+        <th>Milestone</th>
+        <th>Date</th>
+      </tr>
+      <tr>
+        <td>Challenge announcement</td>
+        <td>TBD</td>
+      </tr>
+      <tr>
+        <td>Dataset release</td>
+        <td>TBD</td>
+      </tr>
+      <tr>
+        <td>Submission deadline</td>
+        <td>TBD</td>
+      </tr>
+      <tr>
+        <td>Winner announcement</td>
+        <td>TBD</td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="submission">
+    <h2>Submission</h2>
+    <p>
+      Submission instructions, evaluation metrics, and leaderboard information
+      will be posted here.
+    </p>
+  </section>
+
+  <section id="organizers">
+    <h2>Organizers</h2>
+    <p>
+      Taka Yabe, New York University<br />
+      Additional organizers to be announced.
+    </p>
+  </section>
+
+  <footer>
+    Human Mobility Challenge 2026
+  </footer>
+</body>
+</html>
