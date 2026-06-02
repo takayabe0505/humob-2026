@@ -151,6 +151,21 @@
     .organizer-list {
       margin-bottom: 12px;
     }
+
+    .banner-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin: 0 auto 24px auto;
+}
+
+.banner-logos img {
+  max-height: 48px;
+  max-width: 180px;
+  object-fit: contain;
+}
     
     a {
       color: #1d4ed8;
@@ -160,6 +175,12 @@
 
 <body>
   <header>
+
+    <div class="banner-logos">
+      <img src="NYU_Long_RGB_Color.png" alt="New York University logo">
+      <img src="LY_Corp_logo.svg.png" alt="LY Corporation logo">
+    </div>
+
     <h1>HuMob Challenge 2026</h1>
     <p>
       A benchmark challenge for predicting how human mobility recovered after the
