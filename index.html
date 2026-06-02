@@ -134,6 +134,24 @@
       border-top: 1px solid #e5e7eb;
     }
 
+    .organizer-logos {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    
+    .organizer-logos img {
+      max-height: 54px;
+      max-width: 190px;
+      object-fit: contain;
+    }
+    
+    .organizer-list {
+      margin-bottom: 12px;
+    }
+    
     a {
       color: #1d4ed8;
     }
@@ -411,11 +429,17 @@
 
   <section id="organizers">
     <h2>Organizers</h2>
-    <p>
-      Takahiro Yabe, New York University<br />
-      Kota Tsubouchi, LY Corporation<br />
-      Toru Shimizu, LY Corporation<br />
-    </p>
+
+      <p class="organizer-list">
+        Takahiro Yabe, New York University<br />
+        Kota Tsubouchi, LY Corporation<br />
+        Toru Shimizu, LY Corporation
+      </p>
+
+      <div class="organizer-logos">
+        <img src="assets/nyu-logo.png" alt="New York University logo">
+        <img src="assets/lycorp-logo.png" alt="LY Corporation logo">
+      </div>
   </section>
 
   <section id="contact">
