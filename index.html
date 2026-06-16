@@ -153,19 +153,19 @@
     }
 
     .banner-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  flex-wrap: wrap;
-  margin: 0 auto 24px auto;
-}
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 0 auto 24px auto;
+    }
 
-.banner-logos img {
-  max-height: 48px;
-  max-width: 180px;
-  object-fit: contain;
-}
+    .banner-logos img {
+      max-height: 48px;
+      max-width: 180px;
+      object-fit: contain;
+    }
     
     a {
       color: #1d4ed8;
@@ -188,6 +188,7 @@
     </p>
     <a class="button" href="#challenge">The Challenge</a>
     <a class="button" href="#dataset">Dataset</a>
+    <a class="button" href="https://zenodo.org/records/20709796" target="_blank">Download Data</a>
     <a class="button" href="#timeline">Important Dates</a>
   </header>
 
@@ -198,6 +199,7 @@
     <a href="#rules">Rules</a>
     <a href="#evaluation">Evaluation</a>
     <a href="#timeline">Timeline</a>
+    <a href="#submission">Submission</a>
     <a href="#organizers">Organizers</a>
   </nav>
 
@@ -227,8 +229,8 @@
     </p>
 
     <div class="notice">
-      <strong>Data release:</strong> The HuMob Challenge 2026 dataset will be released on
-      <strong>June 15, 2026</strong>.
+      <strong>Data now available:</strong> The HuMob Challenge 2026 dataset is available on
+      <a href="https://zenodo.org/records/20709796" target="_blank">Zenodo</a>.
     </div>
   </section>
 
@@ -284,24 +286,65 @@
   <section id="dataset">
     <h2>Dataset</h2>
     <p>
-      The dataset will contain aggregated origin-destination mobility flows for
-      the Noto / Ishikawa study area. The main release will use daily aggregation
-      and approximately 2 km grid cells.
+      The HuMob Challenge 2026 dataset contains aggregated origin-destination
+      mobility flows for the Noto / Ishikawa study area. The dataset is available
+      on <a href="https://zenodo.org/records/20709796" target="_blank">Zenodo</a>.
     </p>
 
-    <h3>Study Area Bounding Box</h3>
+    <div class="notice">
+      <strong>Download:</strong>
+      <a href="https://zenodo.org/records/20709796" target="_blank">HuMob Challenge 2026 dataset on Zenodo</a>
+    </div>
+
+    <h3>Dataset File</h3>
     <table>
       <tr>
-        <th>Coordinate</th>
+        <th>Item</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>Filename</td>
+        <td><code>humob2026-dataset.tsv</code></td>
+      </tr>
+      <tr>
+        <td>Format</td>
+        <td>TSV with two columns: date in <code>YYYYMMDD</code> format and a Python dictionary storing the OD matrix.</td>
+      </tr>
+      <tr>
+        <td>Rows</td>
+        <td>One row per day. The file contains 306 days from November 1, 2023 to January 31, 2024 and from April 1, 2024 to October 31, 2024.</td>
+      </tr>
+      <tr>
+        <td>OD matrix structure</td>
+        <td><code>{origin_grid: {dest_grid: count, ...}, ...}</code></td>
+      </tr>
+    </table>
+
+    <h3>Spatial Grid</h3>
+    <table>
+      <tr>
+        <th>Item</th>
         <th>Value</th>
       </tr>
       <tr>
-        <td>Latitude range</td>
-        <td>36.203 to 37.646</td>
+        <td>Grid ID format</td>
+        <td><code>"x_y"</code>, where each grid unit is approximately 2 km.</td>
+      </tr>
+      <tr>
+        <td>x range</td>
+        <td>1 to 100</td>
+      </tr>
+      <tr>
+        <td>y range</td>
+        <td>1 to 70</td>
       </tr>
       <tr>
         <td>Longitude range</td>
-        <td>136.029 to 138.042</td>
+        <td>136.029 to 138.042, where <code>x=1</code> corresponds to 136.029 and <code>x=100</code> corresponds to 138.042.</td>
+      </tr>
+      <tr>
+        <td>Latitude range</td>
+        <td>36.203 to 37.646, where <code>y=1</code> corresponds to 36.203 and <code>y=70</code> corresponds to 37.646.</td>
       </tr>
     </table>
 
@@ -313,18 +356,38 @@
       </tr>
       <tr>
         <td>Training period</td>
-        <td>November 1, 2023 to January 31, 2024, and April 1, 2024 to June 30, 2024</td>
+        <td>November 1, 2023 to January 31, 2024, and April 1, 2024 to October 31, 2024</td>
       </tr>
       <tr>
         <td>Test period</td>
         <td>February 1, 2024 to March 31, 2024</td>
       </tr>
+      <tr>
+        <td>Excluded test dates</td>
+        <td>Due to data quality reasons, participants do not need to predict values for <code>20240202</code> and <code>20240305</code>.</td>
+      </tr>
     </table>
 
-    <div class="notice">
-      The dataset is not released yet. It will be made available on
-      <strong>June 15, 2026</strong>.
-    </div>
+    <h3>Missing / NA Days</h3>
+    <p>
+      Due to data quality reasons, the following 16 dates were removed and replaced
+      with <code>NA</code>:
+    </p>
+    <p>
+      <code>20231126</code>, <code>20231130</code>, <code>20231201</code>,
+      <code>20231203</code>, <code>20231204</code>, <code>20231205</code>,
+      <code>20231214</code>, <code>20240118</code>, <code>20240123</code>,
+      <code>20240124</code>, <code>20240202</code>, <code>20240305</code>,
+      <code>20240408</code>, <code>20240426</code>, <code>20240529</code>,
+      <code>20240708</code>.
+    </p>
+
+    <h3>Privacy and Normalization</h3>
+    <p>
+      The dataset is anonymized using k-anonymity to protect privacy. The k value
+      cannot be disclosed for privacy reasons. The data is also normalized by a
+      constant number for business reasons.
+    </p>
   </section>
 
   <section id="rules">
@@ -385,7 +448,10 @@
     <h2>Evaluation</h2>
     <p>
       Submissions will be evaluated by comparing predicted and observed
-      origin-destination matrices during the test period.
+      origin-destination matrices during the test period. The evaluation will be
+      conducted within the evaluation boundary, defined by grid longitude range
+      <code>x=30</code> to <code>x=70</code> and grid latitude range
+      <code>y=35</code> to <code>y=70</code>.
     </p>
 
     <h3>Primary metric</h3>
@@ -438,13 +504,16 @@
   <section id="submission">
     <h2>Submission</h2>
     <p>
-      Submission instructions, file format requirements, and validation tools will
-      be announced closer to the dataset release.
+      Participants should submit predicted OD matrices for all grid cell pairs
+      during the test period, February 1, 2024 to March 31, 2024, excluding
+      <code>20240202</code> and <code>20240305</code>.
     </p>
 
     <p>
-      Participants will be asked to submit predicted OD matrices for the test
-      period. More details will be provided on this website.
+      Predictions should be submitted in the same format as the dataset:
+      one row per day, with a date in <code>YYYYMMDD</code> format and a nested
+      Python dictionary of OD flows,
+      <code>{origin_grid: {dest_grid: count, ...}, ...}</code>.
     </p>
   </section>
 
