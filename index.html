@@ -166,6 +166,72 @@
       max-width: 180px;
       object-fit: contain;
     }
+
+    .photo-panel {
+      margin-top: 28px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 220px 220px;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .photo-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #e5e7eb;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .photo-card.large {
+      grid-row: span 2;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px 14px;
+      background: linear-gradient(
+        to top,
+        rgba(15, 23, 42, 0.75),
+        rgba(15, 23, 42, 0)
+      );
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .photo-note {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 760px) {
+      .photo-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+      }
+
+      .photo-card,
+      .photo-card.large {
+        height: 220px;
+        grid-row: auto;
+      }
+    }
     
     a {
       color: #1d4ed8;
@@ -195,6 +261,7 @@
   <nav>
     <a href="#about">About</a>
     <a href="#challenge">Challenge</a>
+    <a href="#noto-photos">Photos</a>
     <a href="#dataset">Dataset</a>
     <a href="#rules">Rules</a>
     <a href="#evaluation">Evaluation</a>
@@ -280,6 +347,49 @@
           The main challenge dataset is aggregated at the daily level.
         </p>
       </div>
+    </div>
+  </section>
+
+  <section id="noto-photos">
+    <h2>2024 Noto Peninsula Earthquake</h2>
+    <p>
+      The challenge is motivated by the severe disruption and long recovery process
+      following the 2024 Noto Peninsula Earthquake. The images below provide visual
+      context for the disaster-affected region and the recovery challenges that
+      shaped post-disaster mobility patterns.
+    </p>
+
+    <div class="photo-panel">
+      <div class="photo-grid">
+        <div class="photo-card large">
+          <img src="noto-photo-1.jpg" alt="Damage after the 2024 Noto Peninsula Earthquake">
+          <div class="photo-caption">Earthquake damage in the Noto Peninsula</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="noto-photo-2.jpg" alt="Damaged road after the Noto Peninsula Earthquake">
+          <div class="photo-caption">Road and infrastructure disruption</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="noto-photo-3.jpg" alt="Coastal damage after the Noto Peninsula Earthquake">
+          <div class="photo-caption">Coastal and community impacts</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="noto-photo-4.jpg" alt="Recovery activity after the Noto Peninsula Earthquake">
+          <div class="photo-caption">Recovery and reconstruction activity</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="noto-photo-5.jpg" alt="Noto region after the 2024 earthquake">
+          <div class="photo-caption">Regional mobility recovery context</div>
+        </div>
+      </div>
+
+      <p class="photo-note">
+        Photos by Kazuto Ataka.
+      </p>
     </div>
   </section>
 
@@ -520,16 +630,16 @@
   <section id="organizers">
     <h2>Organizers</h2>
 
-      <p class="organizer-list">
-        Takahiro Yabe, New York University<br />
-        Kota Tsubouchi, LY Corporation<br />
-        Toru Shimizu, LY Corporation
-      </p>
+    <p class="organizer-list">
+      Takahiro Yabe, New York University<br />
+      Kota Tsubouchi, LY Corporation<br />
+      Toru Shimizu, LY Corporation
+    </p>
 
-      <div class="organizer-logos">
-        <img src="NYU_Long_RGB_Color.png" alt="New York University logo">
-        <img src="LY_Corp_logo.svg.png" alt="LY Corporation logo">
-      </div>
+    <div class="organizer-logos">
+      <img src="NYU_Long_RGB_Color.png" alt="New York University logo">
+      <img src="LY_Corp_logo.svg.png" alt="LY Corporation logo">
+    </div>
   </section>
 
   <section id="contact">
