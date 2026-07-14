@@ -581,13 +581,14 @@ RMSE_offdiag(d) = sqrt(mean((prediction - observation)²) over off-diagonal pair
 
 </li>
 
-<li> <strong>Mean RMSE:</strong> The daily RMSE values for each component are averaged across all valid evaluation days: <pre><code>RMSE_diag = mean(RMSE_diag(d) over days)
+<li> <strong>Mean RMSE:</strong> The daily RMSE values for each component are averaged across all valid evaluation days: <pre><code>mean_actual_diag = mean(RMSE_diag(d) over days)
 
-RMSE_offdiag = mean(RMSE_offdiag(d) over days)</code></pre>
+mean_actual_offdiag = mean(RMSE_offdiag(d) over days)</code></pre>
 
 </li>
 
-<li> <strong>Normalization:</strong> Each mean RMSE is divided by the mean of all positive observed values for that component across the full evaluation period: <pre><code>NRMSE_diag = RMSE_diag / mean_actual_diag
+<li> <strong>Normalization:</strong> Each mean RMSE is divided by the mean of all positive observed values for that component across the full evaluation period: 
+  <pre><code>NRMSE_diag = RMSE_diag / mean_actual_diag
 
 NRMSE_offdiag = RMSE_offdiag / mean_actual_offdiag</code></pre>
 
