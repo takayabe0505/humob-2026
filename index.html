@@ -565,11 +565,41 @@
       <code>y=35</code> to <code>y=70</code>.
     </p>
 
-    <h3>Primary metric</h3>
-    <p>
-      The primary evaluation metric will be the sum of squared errors between
-      predicted and observed OD flows within the Noto study area.
-    </p>
+<h3>Primary evaluation metric: Combined NRMSE</h3>
+
+<p> The primary evaluation metric is the <strong>Combined Normalized Root Mean Squared Error (Combined NRMSE)</strong>. The mobility data consist of daily origin-destination (OD) flows on a 2 km grid. OD pairs are evaluated separately as: </p>
+
+<ul> <li> <strong>Diagonal pairs:</strong> origin and destination are the same grid cell, representing people remaining within the same cell. </li> <li> <strong>Off-diagonal pairs:</strong> origin and destination are different grid cells, representing movement between cells. </li> </ul>
+
+<p> Because diagonal flows are approximately ten times larger than off-diagonal flows on average, their raw errors are not directly comparable. The metric therefore normalizes the two components before combining them. </p>
+
+<h4>Computation</h4>
+
+<ol> <li> <strong>Daily RMSE:</strong> For each day in the evaluation period, the root mean squared error is calculated separately across all diagonal and off-diagonal OD pairs: <pre><code>RMSE_diag(d) = sqrt(mean((prediction - observation)²) over diagonal pairs)
+
+RMSE_offdiag(d) = sqrt(mean((prediction - observation)²) over off-diagonal pairs)</code></pre>
+
+</li>
+
+<li> <strong>Mean RMSE:</strong> The daily RMSE values for each component are averaged across all valid evaluation days: <pre><code>RMSE_diag = mean(RMSE_diag(d) over days)
+
+RMSE_offdiag = mean(RMSE_offdiag(d) over days)</code></pre>
+
+</li>
+
+<li> <strong>Normalization:</strong> Each mean RMSE is divided by the mean of all positive observed values for that component across the full evaluation period: <pre><code>NRMSE_diag = RMSE_diag / mean_actual_diag
+
+NRMSE_offdiag = RMSE_offdiag / mean_actual_offdiag</code></pre>
+
+</li>
+
+<li> <strong>Combined NRMSE:</strong> The final score is the simple average of the two normalized components: <pre><code>Combined NRMSE = (NRMSE_diag + NRMSE_offdiag) / 2</code></pre> </li> </ol>
+
+<h4>Rationale</h4>
+
+<p> Normalization ensures that errors in diagonal and off-diagonal flows contribute equally to the final score despite their substantial difference in magnitude. Without normalization, the larger diagonal flows would dominate the evaluation. The mean observed value, rather than the median, is used as the normalization factor because the diagonal-flow distribution is strongly right-skewed; median-based normalization would disproportionately inflate the diagonal NRMSE. </p>
+
+<p> <strong>Lower Combined NRMSE values indicate better predictive performance.</strong> </p>
 
     <h3>Baseline Models</h3>
     <p>
