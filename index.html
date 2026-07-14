@@ -597,9 +597,9 @@ NRMSE_offdiag = RMSE_offdiag / mean_actual_offdiag</code></pre>
 
 <h4>Rationale</h4>
 
-<p> Normalization ensures that errors in diagonal and off-diagonal flows contribute equally to the final score despite their substantial difference in magnitude. Without normalization, the larger diagonal flows would dominate the evaluation. The mean observed value, rather than the median, is used as the normalization factor because the diagonal-flow distribution is strongly right-skewed; median-based normalization would disproportionately inflate the diagonal NRMSE. </p>
+<p> Normalization ensures that errors in diagonal and off-diagonal flows contribute equally to the final score despite their substantial difference in magnitude. Without normalization, the larger diagonal flows would dominate the evaluation. The mean observed value, rather than the median, is used as the normalization factor because the diagonal-flow distribution is strongly right-skewed; median-based normalization would disproportionately inflate the diagonal NRMSE. 
+  <strong>Lower Combined NRMSE values indicate better predictive performance.</strong></p>
 
-<p> <strong>Lower Combined NRMSE values indicate better predictive performance.</strong> </p>
 
     <h3>Baseline Models</h3>
     <p>
