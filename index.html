@@ -587,11 +587,11 @@ RMSE_offdiag = mean(RMSE_offdiag(d) over days)</code></pre>
 
 </li>
 
-<li> <strong>Normalization:</strong> Each mean RMSE is divided by the mean of all positive observed values for that component across the full evaluation period: 
+<li> <strong>Normalization:</strong> Each mean RMSE is divided by the RMS (root mean square) of observed values across all grid-cell pairs in the evaluation boundary, computed over the full observation period. Missing pairs are treated as zero.  
   <pre><code>NRMSE_diag = RMSE_diag / mean_actual_diag
 
 NRMSE_offdiag = RMSE_offdiag / mean_actual_offdiag</code></pre>
-  <p> Here, we set <code>mean_actual_diag = 207.6</code> and <code>mean_actual_offdiag = 19.7</code>. </p>
+  <p> Here, we set <code>mean_actual_diag = 26.57</code> and <code>mean_actual_offdiag = 0.0176</code>. </p>
 
 </li>
 
