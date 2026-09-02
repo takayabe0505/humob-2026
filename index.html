@@ -669,7 +669,7 @@ NRMSE_offdiag = RMSE_offdiag / mean_actual_offdiag</code></pre>
     <p>
       Predictions should be submitted in the same format as the dataset:
       one row per day, with a date in <code>YYYYMMDD</code> format and a nested
-      Python dictionary of OD flows,
+      Python dictionary or json object of OD flows,
       <code>{origin_grid: {dest_grid: count, ...}, ...}</code>.
     </p>
   </section>
