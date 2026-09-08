@@ -607,15 +607,91 @@ NRMSE_offdiag = RMSE_offdiag / mean_actual_offdiag</code></pre>
   <strong>Lower Combined NRMSE values indicate better predictive performance.</strong></p>
 
 
-    <h3>Baseline Models</h3>
-    <p>
-      Baseline results will be provided for comparison. Planned baselines include:
-    </p>
+<h3>Baseline Models</h3>
 
-    <ul>
-      <li>Using April 2024 OD flows directly as predictions for the test period.</li>
-      <li>Using corresponding 2023 OD flows directly as predictions for the test period.</li>
-    </ul>
+<p>
+  The task is to predict daily OD matrices for the Noto area from February 1 to
+  March 31, 2024 (58 valid days).
+</p>
+
+<p>
+  Evaluation uses the Combined NRMSE:
+  <strong>(NRMSE<sub>diag</sub> + NRMSE<sub>offdiag</sub>) / 2</strong>,
+  calculated over all cell pairs within the Noto bounding box
+  (lat 35–70, lon 30–70). Missing OD pairs are treated as 0. NRMSE values are
+  normalized using the official constants
+  <code>mean_actual_diag = 26.57</code> and
+  <code>mean_actual_offdiag = 0.0176</code>.
+</p>
+
+<h4>Baseline 1: April 2024 Mean</h4>
+
+<p>
+  A constant OD matrix constructed from the per-pair mean over the 28 valid
+  days of April 2024.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>RMSE (mean over 58 days)</th>
+      <th>NRMSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Diagonal (stay)</td>
+      <td>2.8527</td>
+      <td>0.1074</td>
+    </tr>
+    <tr>
+      <td>Off-diagonal (move)</td>
+      <td>0.006070</td>
+      <td>0.3449</td>
+    </tr>
+    <tr>
+      <td><strong>Combined</strong></td>
+      <td>&mdash;</td>
+      <td><strong>0.2261</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Baseline 2: Nov–Dec 2023 Mean</h4>
+
+<p>
+  A constant OD matrix constructed from the per-pair mean over the 54 valid
+  days of November–December 2023.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>RMSE (mean over 58 days)</th>
+      <th>NRMSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Diagonal (stay)</td>
+      <td>4.9835</td>
+      <td>0.1876</td>
+    </tr>
+    <tr>
+      <td>Off-diagonal (move)</td>
+      <td>0.006556</td>
+      <td>0.3725</td>
+    </tr>
+    <tr>
+      <td><strong>Combined</strong></td>
+      <td>&mdash;</td>
+      <td><strong>0.2800</strong></td>
+    </tr>
+  </tbody>
+</table>
+    
   </section>
 
   <section id="workshop">
