@@ -734,21 +734,47 @@ NRMSE_offdiag = RMSE_offdiag / mean_actual_offdiag</code></pre>
     </table>
   </section>
 
-  <section id="submission">
-    <h2>Submission</h2>
-    <p>
-      Participants should submit predicted OD matrices for all grid cell pairs
-      during the test period, February 1, 2024 to March 31, 2024, excluding
-      <code>20240202</code> and <code>20240305</code>.
-    </p>
+<section id="submission">
+  <h2>Submission</h2>
 
-    <p>
-      Predictions should be submitted in the same format as the dataset:
-      one row per day, with a date in <code>YYYYMMDD</code> format and a nested
-      Python dictionary or json object of OD flows,
-      <code>{origin_grid: {dest_grid: count, ...}, ...}</code>.
-    </p>
-  </section>
+  <p>
+    Participants should submit predicted OD matrices for all grid cell pairs
+    during the test period, February 1, 2024 to March 31, 2024, excluding
+    <code>20240202</code> and <code>20240305</code>.
+  </p>
+
+  <p>
+    Predictions should be submitted in the same format as the dataset:
+    one row per day, with a date in <code>YYYYMMDD</code> format and a nested
+    Python dictionary or JSON object of OD flows,
+    <code>{origin_grid: {dest_grid: count, ...}, ...}</code>.
+  </p>
+
+  <h3>Validation of Solution Format</h3>
+
+  <p>
+    Every year, we receive submissions that have the wrong format. We created
+    a format validation function that goes through your submission file and
+    flags any issues.
+  </p>
+
+  <p>
+    Please use the validator code available at the GitHub link below. Once you
+    receive a <strong>"Validation passed!"</strong> output, you are ready to
+    submit your solution.
+  </p>
+
+  <p>
+    <strong>Validation function:</strong>
+    <a
+      href="https://github.com/takayabe0505/humob2026-validator"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      GitHub Validator
+    </a>
+  </p>
+</section>
 
   <section id="organizers">
     <h2>Organizers</h2>
